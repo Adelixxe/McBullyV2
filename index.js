@@ -52,7 +52,7 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-    if (message.content.startsWith === "*mcbully") {
+    if (message.content.startsWith("*mcbully")) {
         var UserID = message.content;
         message.reply('Le bully commence :D');
     }
