@@ -62,7 +62,7 @@ bot.on('message', message => {
       })
       .then((collected) => {
           message.channel.send(`The collected message was: ${collected.first().content}`);
-          if(message.author.id === ${collected.first().content}) {
+          if(message.author.id === collected.first().content) {
               j = Math.floor(Math.random() * 11);
               if (j % 2 == 0) {
                   i = Math.floor((Math.random() * maximum) + 1);
