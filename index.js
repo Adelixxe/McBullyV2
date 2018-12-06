@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require("fs");
+const commande = "*mcb"
 var cli = new Discord.Client({autoReconnect:true});
 var servers = {};
-var UserID = 0
 
 var insultes = [
 /*01*/     "Parle pas !",
@@ -31,7 +31,7 @@ var insultes = [
 /*23*/     "T'es qu'une merde.",
 /*24*/     "Arrête de rager.",
 /*25*/     "T'es qu'un sanglier humain.",
-/*26*/     "Du coup si tu fais le poirier, tu t'étouffes ?",
+/*26*/     "Du coup si tu fais le poirier, t u t'étouffes ?",
 /*27*/     "C'est pas un peu bizarre d'avoir deux artères bouchées et de rester en vie ?",
 /*28*/     "Pourquoi tu gonfles tes joues?",
 /*29*/     "T'es grosse Mélissandre"
@@ -48,32 +48,27 @@ bot.on('ready', function() {
 });
 
 bot.on('ready', () => {
-    bot.user.setPresence({game: {name: "Bully Simulator 2019", type: 0}});
+    bot.user.setPresence({game: {name: "Bully Simulator 2019 | @Adelixxe", type: 0}});
 });
 
-    if (message.content === "*mcbully") {
-    bot.on('message', message => {
-        async run(msg)=> {
-            const messages = [];
-            try {
-                await msg.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
-                .then(() => {
-                    await msg.channel.awaitMessages(response => response.content === 'ok', {
-                    max: 1,
-                    time: 30000,
-                    errors: ['time'],
-                        })
-                     .then((collected) => {
-                    msg.channel.send('The collected message was:' + collected.first().content);
-                    var UserID = collected.first().content;
-                    msg.reply('Le bully commence :D');
-                        })
-                     .catch(() => {
-                    msg.channel.send('There was no content collected.');
-                  });
-                })
-            });
-        }
+bot.on('message', message => {
+    if (message.content === "*mcb") {
+    message.channel.send('What tag would you like to see? This will await will be cancelled in 30 seconds. It will finish when you provide a message that goes through the filter the first time.')
+    .then(() => {
+      message.channel.awaitMessages(response => response.content === 'test', {
+        max: 1,
+        time: 30000,
+        errors: ['time'],
+      })
+      .then((collected) => {
+          message.channel.send(`The collected message was: ${collected.first().content}`);
+        })
+        .catch(() => {
+          message.channel.send('There was no collected message that passed the filter within the time limit!');
+        });
+    });
+
+
     }
 }
     if(message.author.id === UserID) {
