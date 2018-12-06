@@ -51,32 +51,31 @@ bot.on('ready', () => {
     bot.user.setPresence({game: {name: "Bully Simulator 2019", type: 0}});
 });
 
-
-
     if (message.content === "*mcbully") {
+    bot.on('message', message => {
         async run(msg)=> {
+            const messages = [];
             try {
-              bot.on('message', message => {
-                        await msg.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
-                        .then(() => {
-                         await msg.channel.awaitMessages(response => response.content === 'ok', {
-                            max: 1,
-                            time: 30000,
-                            errors: ['time'],
-                          })
-                          .then((collected) => {
-                            msg.channel.send('The collected message was:' + collected.first().content);
-                            var UserID = collected.first().content;
-                            msg.reply('Le bully commence :D');
-                          })
-                          .catch(() => {
-                            msg.channel.send('There was no content collected.');
-                          });
+                await msg.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
+                .then(() => {
+                    await msg.channel.awaitMessages(response => response.content === 'ok', {
+                    max: 1,
+                    time: 30000,
+                    errors: ['time'],
                         })
-                    });
-            }
+                     .then((collected) => {
+                    msg.channel.send('The collected message was:' + collected.first().content);
+                    var UserID = collected.first().content;
+                    msg.reply('Le bully commence :D');
+                        })
+                     .catch(() => {
+                    msg.channel.send('There was no content collected.');
+                  });
+                })
+            });
         }
     }
+}
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
