@@ -67,10 +67,8 @@ bot.on('message', message => {
           message.channel.send('There was no collected message that passed the filter within the time limit!');
         });
     });
-
-
     }
-});
+})
 
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
