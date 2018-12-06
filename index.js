@@ -51,7 +51,7 @@ bot.on('ready', () => {
     bot.user.setPresence({game: {name: "Bully Simulator 2019", type: 0}});
 });
 
-if (msg.content.startsWith === "$mcbid" {
+if (msg.content.startsWith === "$mcbid") {
     var UserID = message.content;
     msg.reply('Le bully commence :D');
 }
