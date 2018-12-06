@@ -53,7 +53,8 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     if (message.content === "*mcb") {
-    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID.")
+    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID. >:)
+    ")
     .then(() => {
       message.channel.awaitMessages(() => true, {
         max: 1,
@@ -61,22 +62,22 @@ bot.on('message', message => {
         errors: ['time'],
       })
       .then((collected) => {
-          message.channel.send(`The collected message was: ${collected.first().content}`);
-          if(message.author.id === collected.first().content) {
-              j = Math.floor(Math.random() * 11);
-              if (j % 2 == 0) {
-                  i = Math.floor((Math.random() * maximum) + 1);
-                  console.log(i);
-                  message.reply(insultes[i]);
-              }
-          }
+          USERID = collected.first().content
+          message.channel.send("Bully en Cours ! >:)")
         })
         .catch(() => {
-          message.channel.send('There was no collected message that passed the filter within the time limit!');
+          message.channel.send('Trop tard :C');
         });
     });
     }
-
+    if(message.author.id === USERID) {
+        j = Math.floor(Math.random() * 11);
+        if (j % 2 == 0) {
+            i = Math.floor((Math.random() * maximum) + 1);
+            console.log(i);
+            message.reply(insultes[i]);
+        }
+    }
 
 })
 
