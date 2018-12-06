@@ -55,7 +55,7 @@ client.on('message', msg => {
 if (msg.content.startsWith === "$mcbid") {
     var UserID = message.content;
     msg.reply('Le bully commence :D');
-}
+});
 
 bot.on('message', message => {
     if(message.author.id === UserID) {
