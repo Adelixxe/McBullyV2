@@ -54,23 +54,23 @@ bot.on('ready', () => {
 
 
     if (message.content === "*mcbully") {
-        async () => {
+        async run(msg)=> {
             try {
               bot.on('message', message => {
-                        await message.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
+                        await msg.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
                         .then(() => {
-                         await message.channel.awaitMessages(response => response.content === 'ok', {
+                         await msg.channel.awaitMessages(response => response.content === 'ok', {
                             max: 1,
                             time: 30000,
                             errors: ['time'],
                           })
                           .then((collected) => {
-                            message.channel.send('The collected message was:' + collected.first().content);
+                            msg.channel.send('The collected message was:' + collected.first().content);
                             var UserID = collected.first().content;
-                                    message.reply('Le bully commence :D');
+                            msg.reply('Le bully commence :D');
                           })
                           .catch(() => {
-                            message.channel.send('There was no content collected.');
+                            msg.channel.send('There was no content collected.');
                           });
                         })
                     });
