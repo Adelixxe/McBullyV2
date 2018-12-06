@@ -53,15 +53,23 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     if (message.content === "*mcb") {
-    message.channel.send('What tag would you like to see? This will await will be cancelled in 30 seconds. It will finish when you provide a message that goes through the filter the first time.')
+    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son idée. Marque 'ok' pour commencer")
     .then(() => {
-      message.channel.awaitMessages(response => response.content === 'test', {
+      message.channel.awaitMessages(response => response.content === 'ok', {
         max: 1,
         time: 30000,
         errors: ['time'],
       })
       .then((collected) => {
           message.channel.send(`The collected message was: ${collected.first().content}`);
+          if(message.author.id === ${collected.first().content}) {
+              j = Math.floor(Math.random() * 11);
+              if (j % 2 == 0) {
+                  i = Math.floor((Math.random() * maximum) + 1);
+                  console.log(i);
+                  message.reply(insultes[i]);
+              }
+          }
         })
         .catch(() => {
           message.channel.send('There was no collected message that passed the filter within the time limit!');
@@ -69,14 +77,7 @@ bot.on('message', message => {
     });
     }
 
-    /*if(message.author.id === UserID) {
-        j = Math.floor(Math.random() * 11);
-        if (j % 2 == 0) {
-            i = Math.floor((Math.random() * maximum) + 1);
-            console.log(i);
-            message.reply(insultes[i]);
-        }
-    }*/
+
 })
 
 bot.login(process.env.BOT_TOKEN);
