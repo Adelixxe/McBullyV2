@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const fs = require("fs");
-const commande = "*mcb"
 var cli = new Discord.Client({autoReconnect:true});
 var servers = {};
 
@@ -52,7 +51,7 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-    if (message.content === "*mcb") {
+    if (message.content === "*mcbully") {
     message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID. :wut:")
     .then(() => {
       message.channel.awaitMessages(() => true, {
