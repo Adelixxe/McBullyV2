@@ -52,8 +52,12 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-    if (message.content.startsWith("*mcbully")) {
+    if (message.content === "*mcbully") {
+        message.channel.awaitMessages(re)
+        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
+        collector.on('collect', message => {
         var UserID = message.content;
+    }
         message.reply('Le bully commence :D');
     }
     if(message.author.id === UserID) {
