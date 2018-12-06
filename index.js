@@ -53,7 +53,7 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     if (message.content === "*mcb") {
-    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID. >:)
+    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID. :wut:)
     ")
     .then(() => {
       message.channel.awaitMessages(() => true, {
@@ -63,10 +63,10 @@ bot.on('message', message => {
       })
       .then((collected) => {
         var USERID = collected.first().content
-          message.channel.send("Bully en Cours ! >:)")
+          message.channel.send("Bully en Cours ! :larry:")
         })
         .catch(() => {
-          message.channel.send('Trop tard :C');
+          message.channel.send("Trop tard :rire:");
         });
     });
     }
