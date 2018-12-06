@@ -53,9 +53,9 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     if (message.content === "*mcb") {
-    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son idée. Marque OK en minuscule pour commencer !")
+    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID.")
     .then(() => {
-      message.channel.awaitMessages(response => response.content === 'ok', {
+      message.channel.awaitMessages(() => true, {
         max: 1,
         time: 30000,
         errors: ['time'],
