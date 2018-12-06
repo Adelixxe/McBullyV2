@@ -57,9 +57,9 @@ bot.on('message', message => {
         const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
         collector.on('collect', message => {
         var UserID = message.content;
-    }
         message.reply('Le bully commence :D');
-    }
+        })
+}
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
