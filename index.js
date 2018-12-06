@@ -52,9 +52,9 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-    if (message.content.startsWith === "$mcbid") {
+    if (message.content.startsWith === "*mcbully") {
         var UserID = message.content;
-        msg.reply('Le bully commence :D');
+        message.reply('Le bully commence :D');
     }
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
