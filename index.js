@@ -57,10 +57,9 @@ bot.on('ready', () => {
         async () => {
             try {
               bot.on('message', message => {
-                        messages.push(await
-                        message.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
+                        await message.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
                         .then(() => {
-                          message.channel.awaitMessages(response => response.content === 'ok', {
+                         await message.channel.awaitMessages(response => response.content === 'ok', {
                             max: 1,
                             time: 30000,
                             errors: ['time'],
@@ -74,10 +73,9 @@ bot.on('ready', () => {
                             message.channel.send('There was no content collected.');
                           });
                         })
-                    );
-                }
+                    });
             }
-        })
+        }
     }
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
