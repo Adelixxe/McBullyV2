@@ -70,7 +70,8 @@ bot.on('message', message => {
 
 
     }
-}
+});
+
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
