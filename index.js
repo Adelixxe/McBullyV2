@@ -54,8 +54,7 @@ bot.on('ready', () => {
 
 
     if (message.content === "*mcbully") {
-        async run(message) {
-            const messages = [];
+        async () => {
             try {
               bot.on('message', message => {
                         messages.push(await
