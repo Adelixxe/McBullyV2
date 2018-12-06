@@ -51,13 +51,11 @@ bot.on('ready', () => {
     bot.user.setPresence({game: {name: "Bully Simulator 2019", type: 0}});
 });
 
-client.on('message', msg => {
-if (msg.content.startsWith === "$mcbid") {
-    var UserID = message.content;
-    msg.reply('Le bully commence :D');
-});
-
 bot.on('message', message => {
+    if (message.content.startsWith === "$mcbid") {
+        var UserID = message.content;
+        msg.reply('Le bully commence :D');
+    }
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
@@ -66,6 +64,6 @@ bot.on('message', message => {
             message.reply(insultes[i]);
         }
      }
-});
+})
 
 bot.login(process.env.BOT_TOKEN);
