@@ -69,14 +69,14 @@ bot.on('message', message => {
     });
     }
 
-    if(message.author.id === UserID) {
+    /*if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
             i = Math.floor((Math.random() * maximum) + 1);
             console.log(i);
             message.reply(insultes[i]);
         }
-     }
+    }*/
 })
 
 bot.login(process.env.BOT_TOKEN);
