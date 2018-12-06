@@ -51,15 +51,35 @@ bot.on('ready', () => {
     bot.user.setPresence({game: {name: "Bully Simulator 2019", type: 0}});
 });
 
-bot.on('message', message => {
+
+
     if (message.content === "*mcbully") {
-        message.channel.awaitMessages(re)
-        const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 10000 });
-        collector.on('collect', message => {
-        var UserID = message.content;
-        message.reply('Le bully commence :D');
+        async run(msg) {
+            const messages = [];
+            try {
+              bot.on('message', message => {
+                        messages.push(await
+                        msg.direct("Donne moi l'ID du garnement. Attention tu n'as que 30 secondes, marque 'ok' pour commencer !")
+                        .then(() => {
+                          msg.channel.awaitMessages(response => response.content === 'ok', {
+                            max: 1,
+                            time: 30000,
+                            errors: ['time'],
+                          })
+                          .then((collected) => {
+                            msg.channel.send('The collected message was:' + collected.first().content);
+                            var UserID = collected.first().content;
+                                    message.reply('Le bully commence :D');
+                          })
+                          .catch(() => {
+                            msg.channel.send('There was no content collected.');
+                          });
+                        })
+                    );
+                }
+            }
         })
-}
+    }
     if(message.author.id === UserID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
