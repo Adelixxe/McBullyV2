@@ -34,10 +34,11 @@ var insultes = [
 /*26*/     "Du coup si tu fais le poirier, t u t'étouffes ?",
 /*27*/     "C'est pas un peu bizarre d'avoir deux artères bouchées et de rester en vie ?",
 /*28*/     "Pourquoi tu gonfles tes joues?",
-/*29*/     "T'es grosse Mélissandre"
+/*29*/     "T'es grosse Mélissandre",
+           "Va crever stp."
 ];
 
-const maximum = 29;
+const maximum = 30;
 
 bot.commands = new Discord.Collection();
 bot.on("error", (e) => console.error(e));
@@ -48,7 +49,7 @@ bot.on('ready', function() {
 });
 
 bot.on('ready', () => {
-    bot.user.setPresence({game: {name: "Bully Simulator 2019 | @Adelixxe", type: 0}});
+    bot.user.setPresence({game: {name: "Bully Simulator | @Adelixxe", type: 0}});
 });
 
 bot.on('message', message => {
@@ -83,6 +84,7 @@ bot.on('message', message => {
     if (message.content === "*mcbully clear") {
         check = false
         id = 0
+        message.channel.send("ID Clear.");
     }
 });
 
