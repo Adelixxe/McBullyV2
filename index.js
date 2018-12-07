@@ -53,7 +53,7 @@ bot.on('ready', () => {
 
 bot.on('message', message => {
     if (message.content === "*mcbully") {
-    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID. :wut:")
+    message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID.")
     .then(() => {
       message.channel.awaitMessages(() => true, {
         max: 1,
@@ -62,11 +62,11 @@ bot.on('message', message => {
       })
       .then((collected) => {
           id = collected.first().content
-          message.channel.send("Bully en Cours ! :larry:")
+          message.channel.send("Bully en Cours !")
           check = true
         })
         .catch(() => {
-          message.channel.send("Trop tard :rire:");
+          message.channel.send("Trop tard.");
           check = false
         });
     });
@@ -78,6 +78,11 @@ bot.on('message', message => {
             console.log(i);
             message.reply(insultes[i]);
         }
+    }
+
+    if (message.content === "*mcbully clear") {
+        check = false
+        id = 0
     }
 });
 
