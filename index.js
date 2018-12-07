@@ -68,7 +68,8 @@ bot.on('message', message => {
         });
     });
     }
-    .then(message.author.id === USERID) {
+    .then({
+         if(message.author.id === USERID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
             i = Math.floor((Math.random() * maximum) + 1);
@@ -76,6 +77,7 @@ bot.on('message', message => {
             message.reply(insultes[i]);
         }
     }
+});
 
 })
 
