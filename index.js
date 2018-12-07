@@ -3,8 +3,8 @@ const bot = new Discord.Client();
 const fs = require("fs");
 var cli = new Discord.Client({autoReconnect:true});
 var servers = {};
-var USERID = 0
-var check = 0
+var userid = 0
+var check = false
 var insultes = [
 /*01*/     "Parle pas !",
 /*02*/     "Ferme la gros porc !",
@@ -63,15 +63,15 @@ bot.on('message', message => {
       .then((collected) => {
           USERID = collected.first().content
           message.channel.send("Bully en Cours ! :larry:")
-          check = 1
+          check = true
         })
         .catch(() => {
           message.channel.send("Trop tard :rire:");
-          check = 0
+          check = false
         });
     });
     }
-         if(message.author.id === USERID && check = 1) {
+         if(message.author.id === (userid) && (check = true)) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
             i = Math.floor((Math.random() * maximum) + 1);
