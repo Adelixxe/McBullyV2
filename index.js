@@ -60,7 +60,7 @@ bot.on('message', message => {
         errors: ['time'],
       })
       .then((collected) => {
-        vat USERID = collected.first().content
+        var USERID = collected.first().content
           message.channel.send("Bully en Cours ! :larry:")
         })
         .catch(() => {
