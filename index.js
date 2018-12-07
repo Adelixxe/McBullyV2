@@ -3,7 +3,8 @@ const bot = new Discord.Client();
 const fs = require("fs");
 var cli = new Discord.Client({autoReconnect:true});
 var servers = {};
-
+var USERID = 0
+var check = 0
 var insultes = [
 /*01*/     "Parle pas !",
 /*02*/     "Ferme la gros porc !",
@@ -28,7 +29,7 @@ var insultes = [
 /*21*/     "Suce mes couilles.",
 /*22*/     "Tu es tellement gros qu'il te faut un GPS pour trouver ton nombril.",
 /*23*/     "T'es qu'une merde.",
-/*24*/     "Arrête de rager.",
+/*24 */     "Arrête de rager.",
 /*25*/     "T'es qu'un sanglier humain.",
 /*26*/     "Du coup si tu fais le poirier, t u t'étouffes ?",
 /*27*/     "C'est pas un peu bizarre d'avoir deux artères bouchées et de rester en vie ?",
@@ -60,16 +61,17 @@ bot.on('message', message => {
         errors: ['time'],
       })
       .then((collected) => {
-        var USERID = collected.first().content
+          USERID = collected.first().content
           message.channel.send("Bully en Cours ! :larry:")
+          check = 1
         })
         .catch(() => {
           message.channel.send("Trop tard :rire:");
+          check = 0
         });
     });
     }
-    then({
-         if(message.author.id === USERID) {
+         if(message.author.id === USERID && check = 1) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
             i = Math.floor((Math.random() * maximum) + 1);
