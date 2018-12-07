@@ -68,7 +68,7 @@ bot.on('message', message => {
         });
     });
     }
-    .then({
+    then({
          if(message.author.id === USERID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
