@@ -60,7 +60,7 @@ bot.on('message', message => {
         errors: ['time'],
       })
       .then((collected) => {
-        var USERID = collected.first().content
+        vat USERID = collected.first().content
           message.channel.send("Bully en Cours ! :larry:")
         })
         .catch(() => {
@@ -68,7 +68,7 @@ bot.on('message', message => {
         });
     });
     }
-    if(message.author.id === USERID) {
+    .then(message.author.id === USERID) {
         j = Math.floor(Math.random() * 11);
         if (j % 2 == 0) {
             i = Math.floor((Math.random() * maximum) + 1);
