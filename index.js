@@ -49,7 +49,7 @@ bot.on('ready', function() {
 });
 
 bot.on('ready', () => {
-    bot.user.setPresence({game: {name: "Bully Simulator | @Adelixxe", type: 0}});
+    bot.user.setPresence({game: {name: "Bully Simulator @Adelixxe", type: 0}});
 });
 
 bot.on('message', message => {
