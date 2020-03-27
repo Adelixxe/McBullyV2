@@ -53,7 +53,7 @@ bot.on('ready', () => {
 });
 
 bot.on('message', message => {
-    if (message.content === "*mcbully" && member.roles.cache.has('688453316417552434')) {
+    if (message.content === "*mcbully" && message.member.hasPermission("ADMINISTRATOR")) {
     message.channel.send("C'est quoi l'id du garnement qui t'ennuie ? Tu as 30 secondes pour me donner son ID.")
     .then(() => {
       message.channel.awaitMessages(() => true, {
@@ -81,7 +81,7 @@ bot.on('message', message => {
         }
     }
 
-    if (message.content === "*mcbully clear" && member.roles.cache.has('688453316417552434')) {
+    if (message.content === "*mcbully clear" && message.member.hasPermission("ADMINISTRATOR")) {
         check = false
         id = 0
         message.channel.send("ID Clear.");
